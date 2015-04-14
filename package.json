@@ -26,6 +26,7 @@
     "hubot-youtube": "^0.1.2",
     "jsdom": "^4.1.0",
     "scraper": "^0.0.9",
+    "scribe-node": "^0.0.24",
     "soupselect": "^0.2.0",
     "tumblrbot": "^0.1.0",
     "underscore": "^1.8.2",
