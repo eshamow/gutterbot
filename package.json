@@ -8,7 +8,7 @@
     "cheerio": "^0.19.0",
     "clark": "^0.0.6",
     "htmlparser": "^1.7.7",
-    "hubot": "^2.11.4",
+    "hubot": "^2.12.0",
     "hubot-diagnostics": "0.0.1",
     "hubot-foursquare-locator": "^1.1.7",
     "hubot-google-images": "^0.1.4",
