@@ -17,6 +17,7 @@
   "oauth.coffee",
   "pizza.coffee",
   "rands-when-you-say.coffee",
+  "redis-brain.coffee",
   "scotch.coffee",
   "uptime.coffee",
   "wikipedia.coffee"
