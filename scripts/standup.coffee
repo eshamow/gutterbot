@@ -29,8 +29,10 @@ module.exports = (robot) ->
       msg.send standup
 
   robot.hear /\/standup (.*)$/i, (msg) ->
-    status = msg.match[1] + "\n"
+    status = msg.message.user.name + ": " + msg.match[1] + "\n"
     if !standup
       standup = status
     else
       standup += status
+
+    msg.send "Standup recorded."
