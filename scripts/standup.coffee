@@ -20,9 +20,10 @@
 # Author:
 #   <github username of the original script author>
 module.exports = (robot) ->
-  standup = null
+  robot.brain.set 'standup', null
 
   robot.hear /\/standup$/i, (msg) ->
+    standup = robot.brain.get('standup')
     if !standup
       msg.send "No standup recorded yet."
     else
@@ -30,9 +31,11 @@ module.exports = (robot) ->
 
   robot.hear /\/standup (.*)$/i, (msg) ->
     status = msg.message.user.name + ": " + msg.match[1] + "\n"
+    standup = robot.brain.get('standup')
     if !standup
       standup = status
     else
       standup += status
 
+    robot.brain.set 'standup', standup
     msg.send "Standup recorded."
