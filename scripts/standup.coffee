@@ -27,7 +27,8 @@ module.exports = (robot) ->
     if Object.keys(standup).length == 0
       msg.send "No standup recorded yet."
     else
-      msg.send standup[msg.message.user.name]
+      for user,status of standup
+        msg.send user + " - " + standup[user]
 
   robot.hear /\/standup (.*)$/i, (msg) ->
     status = msg.message.room + ": " + msg.match[1] + "\n"
@@ -36,8 +37,6 @@ module.exports = (robot) ->
     robot.brain.set 'standup', standup
     msg.send "Standup recorded."
 
-# next - turn standup into hash
-#iterate across standup hash for status printout
 #multi-dimensional - user and room as keys
 # if user & room has already reported, replace status. otherwise add
 # command to clear room standup
