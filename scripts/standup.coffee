@@ -24,20 +24,18 @@ module.exports = (robot) ->
 
   robot.hear /\/standup$/i, (msg) ->
     standup = robot.brain.get('standup')
-    if Object.keys(standup).length == 0
-      msg.send "No standup recorded yet."
+    if !standup[msg.message.room]
+      msg.send "No standup recorded yet in this room."
     else
-      for user,status of standup
-        msg.send user + " - " + standup[user]
+      for user,status of standup[msg.message.room]
+        msg.send user + " - " + status
 
   robot.hear /\/standup (.*)$/i, (msg) ->
-    status = msg.message.room + ": " + msg.match[1] + "\n"
+    status = msg.match[1] + "\n"
     standup = robot.brain.get('standup')
-    standup[msg.message.user.name] = status
+    standup[msg.message.room] = {
+      "#{msg.message.user.name}": status
+    }
     robot.brain.set 'standup', standup
     msg.send "Standup recorded."
 
-#multi-dimensional - user and room as keys
-# if user & room has already reported, replace status. otherwise add
-# command to clear room standup
-# command to get full standups list
