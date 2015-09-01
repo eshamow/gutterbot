@@ -27,6 +27,7 @@
     "hubot-shipit": "^0.1.2",
     "hubot-slack": "^3.3.0",
     "hubot-standup-alarm": "0.0.6",
+    "hubot-xmpp": "^0.1.16",
     "hubot-youtube": "^0.1.2",
     "jsdom": "^4.5.2",
     "scraper": "^0.0.9",
