@@ -22,7 +22,7 @@
 module.exports = (robot) ->
   robot.brain.set 'standup', {}
 
-  robot.hear /\/standup$/i, (msg) ->
+  robot.hear /standup$/i, (msg) ->
     standup = robot.brain.get('standup')
     if !standup[msg.message.room]
       msg.send "No standup recorded yet in this room."
@@ -30,7 +30,7 @@ module.exports = (robot) ->
       for user,status of standup[msg.message.room]
         msg.send user + " - " + status
 
-  robot.hear /\/standup (.*)$/i, (msg) ->
+  robot.hear /standup (.*)$/i, (msg) ->
     status = msg.match[1] + "\n"
     standup = robot.brain.get('standup')
     standup[msg.message.room] = {
