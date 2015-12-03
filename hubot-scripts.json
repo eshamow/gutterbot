@@ -10,6 +10,7 @@
   "dice.coffee",
   "directions.coffee",
   "isup.coffee",
+  "flip.coffee",
   "manatee.coffee",
   "meme_generator.coffee",
   "news.coffee",
